@@ -5,22 +5,22 @@
 @font-face {
     font-family: "HK Grotesk Web";
     font-weight: 200;
-    src: url("../fonts/hkgrotesk-light-webfont.woff2") format("woff2"),
-         url("../fonts/hkgrotesk-light-webfont.woff") format("woff");
+    src: url("../fonts/hkgrotesk-light-webfont.woff2") format("woff2");
+    src: url("../fonts/hkgrotesk-light-webfont.woff") format("woff");
 }
 
 @font-face {
     font-family: "HK Grotesk Web";
     font-weight: 400;
-    src: url("../fonts/hkgrotesk-regular-webfont.woff2") format("woff2"),
-         url("../fonts/hkgrotesk-regular-webfont.woff") format("woff");
+    src: url("../fonts/hkgrotesk-regular-webfont.woff2") format("woff2");
+    src: url("../fonts/hkgrotesk-regular-webfont.woff") format("woff");
 }
 
 @font-face {
     font-family: "HK Grotesk Web";
     font-weight: 600;
-    src: url("../fonts/hkgrotesk-medium-webfont.woff2") format("woff2"),
-         url("../fonts/hkgrotesk-medium-webfont.woff") format("woff");
+    src: url("../fonts/hkgrotesk-medium-webfont.woff2") format("woff2");
+    src: url("../fonts/hkgrotesk-medium-webfont.woff") format("woff");
 }
 
 /*------------------------------------*\
@@ -43,17 +43,17 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-
 @media (min-width: 768px) {
     html {
         font-size: 20px;
         line-height: 1.6;
     }
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 /*
@@ -96,9 +96,7 @@ img {
     Default markup for typographic elements
 */
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
     font-weight: 200;
 }
 
@@ -183,8 +181,9 @@ a {
 a:visited,
 a:active,
 a:hover,
-a:focus {
-    color: #3E3EA8;
+a:focus
+{
+    color:  #3E3EA8;
 }
 
 /*------------------------------------*\
@@ -207,6 +206,12 @@ a:focus {
 
 .o-row--lg {
     padding: 48px 24px 24px;
+}
+
+/* color mofifiers */
+
+.o-row--neutral-x-light {
+    background-color: #F7F7FA;
 }
 
 @media (min-width: 768px) {
@@ -235,7 +240,7 @@ a:focus {
 .o-container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 56.4em; /* 56.4 * 20px = 1128px */
+    max-width: 56.4em; /* 90 * 16px = 1440px */
 }
 
 /*
@@ -356,12 +361,24 @@ a:focus {
 }
 
 /*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+    list-style: none;
+    padding: 0;
+}
+
+/*
     Objects: section
     ---
     Creates vertical whitespace between adjacent sections inside a row
 */
 
 .o-section {
+    overflow: auto;
     overflow-x: hidden;
 }
 
@@ -382,16 +399,7 @@ a:focus {
     }
 }
 
-/*
-    Objects: List
-    ---
-    Small reusable object to remove default list styling from lists
-*/
 
-.o-list {
-    list-style: none;
-    padding: 0;
-}
 
 /*------------------------------------*\
   #COMPONENTS
@@ -409,9 +417,14 @@ a:focus {
 
 @media (min-width: 992px) {
     .c-header {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        flex-wrap: no-wrap;
+        justify-content: space-between;
     }
 
     .c-header__nav {
@@ -435,7 +448,9 @@ a:focus {
 
 @media (min-width: 768px) {
     .c-logo {
-        height: 40px;
+        height: 32px;
+    }
+    .c-logo__symbol {
     }
 }
 
@@ -464,22 +479,26 @@ a:focus {
 .c-nav__link,
 .c-nav__link:visited,
 .c-nav__link:active {
-    color: #202024;
+    color: #202024; /* Natural dark color */
 }
 
 .c-nav__link--meta,
 .c-nav__link--meta:visited,
 .c-nav__link--meta:active {
-    color: #6C6C75;
+    color: #6C6C75; /* light grey **/
 }
 
 .c-nav__link:hover,
 .c-nav__link:focus {
-    color: #5051db;
+    color: #5051DB; /* Primary color */
 }
 
 @media (min-width: 768px) {
     .c-nav__list {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
         display: flex;
         margin-left: -16px;
         margin-right: -16px;
@@ -489,6 +508,81 @@ a:focus {
         padding: 8px 16px;
     }
 }
+
+/*
+    Component: Lead
+    ---
+    Lead type treatments to style everything that differs from standard typography elements
+*/
+
+.c-lead {
+    font-weight: 200;
+}
+
+.c-lead--lg {
+    font-size: 20px;
+    line-height: 32px;
+}
+
+.c-lead--xl {
+    font-size: 26px;
+    line-height: 32px;
+}
+
+.c-lead--xxl {
+    font-size: 32px;
+    line-height: 40px;
+}
+
+.c-lead--xxxl {
+    font-size: 36px;
+    line-height: 48px;
+}
+
+@media (min-width: 768px) {
+    .c-lead--lg {
+        font-size: 23px;
+        line-height: 32px;
+    }
+
+    .c-lead--xl {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .c-lead--xxl {
+        font-size: 41px;
+        line-height: 48px;
+    }
+
+    .c-lead--xxxl {
+        font-size: 52px;
+        line-height: 64px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .c-lead--lg {
+        font-size: 26px;
+        line-height: 36px;
+    }
+
+    .c-lead--xl {
+        font-size: 36px;
+        line-height: 48px;
+    }
+
+    .c-lead--xxl {
+        font-size: 52px;
+        line-height: 64px;
+    }
+
+    .c-lead--xxxl {
+        font-size: 66px;
+        line-height: 72px;
+    }
+}
+
 
 /*------------------------------------*\
   #UTILITIES
@@ -732,6 +826,25 @@ a:focus {
 .u-pt-clear {
     padding-top: 0 !important;
 }
+
+/*
+    Utilities: color
+    ---
+    Utility classes to put specific colors onto elements
+*/
+
+.u-color-primary-light {
+    color: #7373F5 !important;
+}
+
+.u-color-primary-base {
+    color: #5051DB !important;
+}
+
+.u-color-primary-dark {
+    color: #3E3EA8 !important;
+}
+
 
 /*------------------------------------*\
   #MEDIA
